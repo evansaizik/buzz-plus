@@ -3,7 +3,8 @@ import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
 const SocketContext = createContext();
-const socket = io('http://localhost:8080');
+const socket = io('https://buzz-plus-backend.vercel.app');
+// const socket = io('http://localhost:8080');
 
 const SocketProvider = ({ children }) => {
   const [stream, setStream] = useState(null);
