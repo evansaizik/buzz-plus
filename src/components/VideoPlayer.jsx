@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 import { SocketContext } from '../SocketContext';
+import ReactPlayer from 'react-player'
 
 const VideoPlayer = () => {
   const {
     name,
     callAccepted,
-    myVideoRef,
+    // myVideoRef,
     userVideoRef,
     callended,
     stream,
@@ -18,14 +19,16 @@ const VideoPlayer = () => {
       {stream && (
         <div>
           <p>{name || 'me'}</p>
-          <video
+          {/* <video
             playsInline
             muted
             width="400"
+            height="300"
             ref={myVideoRef}
             autoPlay
             className=""
-          />
+          /> */}
+          <ReactPlayer url={stream} playing muted />
         </div>
       )}
       {/* user video */}

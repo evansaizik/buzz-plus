@@ -23,11 +23,13 @@ const SocketProvider = ({ children }) => {
       .getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
         setStream(currentStream);
-        myVideoRef.current.srcObject = currentStream;
+        // myVideoRef.current.srcObject = currentStream;
       })
       .catch((err) => {
-        console.log('video element in use')
+        console.error(err);
+        // console.log('video element in use')
       });
+
     socket.on('me', (id) => setMe(id));
     socket.on('calluser', ({ from, name: callerName, signal }) => {
       setCall({ isReceivedCall: true, from, name: callerName, signal });
