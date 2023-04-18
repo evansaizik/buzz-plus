@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
 const SocketContext = createContext();
-const socket = io('https://buzz-plus-backend.vercel.app');
+const socket = io('https://vidchatter.herokuapp.com/');
 // const socket = io('http://localhost:8080');
 
 const SocketProvider = ({ children }) => {
@@ -24,6 +24,9 @@ const SocketProvider = ({ children }) => {
       .then((currentStream) => {
         setStream(currentStream);
         myVideoRef.current.srcObject = currentStream;
+      })
+      .catch((err) => {
+        console.log('video element in use')
       });
     socket.on('me', (id) => setMe(id));
     socket.on('calluser', ({ from, name: callerName, signal }) => {
