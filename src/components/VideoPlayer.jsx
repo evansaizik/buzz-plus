@@ -47,22 +47,22 @@ const VideoPlayer = () => {
                 position: 'absolute',
                 zIndex: '1',
               }
-            : {}
+            : { width: '100%', height: '60vh' }
         }
       >
         {stream && (
-          <ReactPlayer width="100" height="100" url={stream} playing muted />
+          <ReactPlayer width="100%" height="100%" url={stream} playing muted />
         )}
       </div>
       {/* user video */}
       {callAccepted && !callended && (
         <div
-        style={{
-          width: '100%',
-          height: '100%',
-          // background: 'gray',
-          position: 'absolute',
-        }}
+          style={{
+            width: '100%',
+            height: '100%',
+            background: 'gray',
+            position: 'absolute',
+          }}
         >
           <p>{call.name || 'your friend'}</p>
           <video
