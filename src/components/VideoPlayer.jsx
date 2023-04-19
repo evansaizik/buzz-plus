@@ -60,7 +60,7 @@ const VideoPlayer = () => {
           style={{
             width: '100%',
             height: '100%',
-            background: 'gray',
+            // background: 'gray',
             position: 'absolute',
           }}
         >
