@@ -1,10 +1,9 @@
 import { useContext } from 'react';
 import { SocketContext } from '../SocketContext';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
 
 const VideoPlayer = () => {
   const {
-    name,
     callAccepted,
     // myVideoRef,
     userVideoRef,
@@ -14,34 +13,64 @@ const VideoPlayer = () => {
   } = useContext(SocketContext);
 
   return (
-    <main>
+    <main
+      style={
+        !callAccepted && callended
+          ? {
+              minWidth: '370px',
+              margin: 'auto',
+              maxWidth: '800px',
+              height: '70vh',
+              position: 'relative',
+            }
+          : {
+              // paddingTop: '50px',
+              minWidth: '370px',
+              margin: 'auto',
+              maxWidth: '800px',
+              height: '60vh',
+              position: 'relative',
+            }
+      }
+    >
       {/* my video */}
-      {stream && (
-        <div>
-          <p>{name || 'me'}</p>
-          {/* <video
-            playsInline
-            muted
-            width="400"
-            height="300"
-            ref={myVideoRef}
-            autoPlay
-            className=""
-          /> */}
-          <ReactPlayer url={stream} playing muted />
-        </div>
-      )}
+      <div
+        style={
+          callAccepted && !callended
+            ? {
+                width: '45%',
+                right: '10px',
+                bottom: '0',
+                margin: '10px',
+                borderRadius: '20%',
+                maxWidth: '250px',
+                position: 'absolute',
+                zIndex: '1',
+              }
+            : {}
+        }
+      >
+        {stream && (
+          <ReactPlayer width="100" height="100" url={stream} playing muted />
+        )}
+      </div>
       {/* user video */}
       {callAccepted && !callended && (
-        <div>
+        <div
+        style={{
+          width: '100%',
+          height: '100%',
+          // background: 'gray',
+          position: 'absolute',
+        }}
+        >
           <p>{call.name || 'your friend'}</p>
           <video
             playsInline
-            width="400"
-            height="300"
+            width="100%"
+            height="90%"
             ref={userVideoRef}
             autoPlay
-            className=""
           />
         </div>
       )}

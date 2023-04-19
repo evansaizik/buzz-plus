@@ -54,6 +54,7 @@ const SocketProvider = ({ children }) => {
   };
 
   const callUser = (id) => {
+    console.log('frontend calling')
     const peer = new Peer({ initiator: true, trickle: false, stream });
 
     peer.on('signal', (data) => {

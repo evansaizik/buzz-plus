@@ -10,7 +10,13 @@ const Options = ({ children }) => {
   const [idToCall, setIdToCall] = useState('');
 
   return (
-    <section>
+    <section 
+    style={{
+      margin: 'auto',
+      width: '370px',
+      backgroundColor: 'lightblue',
+    }}
+    >
       <form>
         <p>account Info</p>
         <input
