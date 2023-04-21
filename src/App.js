@@ -7,8 +7,8 @@ import Video from './Video';
 import Options from './Options';
 import Notifications from './Notifications';
 
-// const socket = io.connect('https://vidchatter.herokuapp.com');
-const socket = io.connect('http://localhost:8080');
+const socket = io.connect('https://vidchatter.herokuapp.com');
+// const socket = io.connect('http://localhost:8080');
 
 function App() {
   const [username, setUsername] = useState('');
