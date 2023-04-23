@@ -61,7 +61,6 @@ function App() {
   };
 
   const callUser = (id) => {
-
     const peer = new Peer({ initiator: true, trickle: false, stream });
 
     peer.on('signal', (data) => {
@@ -93,36 +92,36 @@ function App() {
 
   return (
     <section style={{ display: 'flex' }}>
-      <div>
-        <Video
-          variables={{
-            call,
-            callAccepted,
-            myVideo,
-            userVideo,
-            stream,
-            name,
-            setName,
-            callEnded,
-            me,
-            callUser,
-            leaveCall,
-            answerCall,
-          }}
-        />
-        <Options
-          variables={{
-            me,
-            callAccepted,
-            leaveCall,
-            callUser,
-            callEnded,
-            setName,
-            name,
-          }}
-        />
-        <Notifications variables={{ answerCall, call, callAccepted }} />
-      </div>
+        <div>
+          <Video
+            variables={{
+              call,
+              callAccepted,
+              myVideo,
+              userVideo,
+              stream,
+              name,
+              setName,
+              callEnded,
+              me,
+              callUser,
+              leaveCall,
+              answerCall,
+            }}
+          />
+          <Options
+            variables={{
+              me,
+              callAccepted,
+              leaveCall,
+              callUser,
+              callEnded,
+              setName,
+              name,
+            }}
+          />
+          <Notifications variables={{ username, answerCall, call, callAccepted }} />
+        </div>
       <div className="App">
         {!showChat ? (
           <div className="joinChatContainer">

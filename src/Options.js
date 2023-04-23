@@ -2,15 +2,12 @@ import { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const Options = ({ variables }) => {
-  const { me, callAccepted, leaveCall, callUser, callEnded, setName } =
-    variables;
+  const { me, callAccepted, leaveCall, callUser, callEnded } = variables;
   const [idToCall, setIdToCall] = useState('');
 
   return (
     <div>
       <form>
-        <label htmlFor="name">Name:</label>
-        <input id="name" onChange={(e) => setName(e.target.value)} />
         <CopyToClipboard text={me}>
           <button onClick={(e) => e.preventDefault()}>Copy your ID</button>
         </CopyToClipboard>
